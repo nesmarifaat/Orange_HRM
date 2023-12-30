@@ -36,11 +36,11 @@ public class Utility {
     // TODO: Capture Screenshot
     public static void captureScreenshot(WebDriver driver, String screenshotName) {
         TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
-        Date currntDate=new Date();
-        screenshotName=screenshotName+" "+currntDate.toString().replace(" ","-").replace(":","-");
+        Date currntDate = new Date();
+        screenshotName = screenshotName + " " + currntDate.toString().replace(" ", "-").replace(":", "-");
         try {
             FileHandler.copy(takesScreenshot.getScreenshotAs(OutputType.FILE), new File(System.getProperty("user.dir")
-                    + "/src/test/resources/Screenshots/"+ screenshotName + ".png"));
+                    + "/src/test/resources/Screenshots/" + screenshotName + ".png"));
         } catch (WebDriverException | IOException e) {
             e.printStackTrace();
         }
@@ -98,7 +98,7 @@ public class Utility {
         return email;
     }
 
-    public static String getSingleJsonData(String jsonFilePath,String jsonField) throws IOException, ParseException, ParseException {
+    public static String getSingleJsonData(String jsonFilePath, String jsonField) throws IOException, ParseException, ParseException {
         JSONParser jsonParser = new JSONParser();
 
         FileReader fileReader = new FileReader(jsonFilePath);

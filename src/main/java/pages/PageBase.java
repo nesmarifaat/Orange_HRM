@@ -12,16 +12,16 @@ import java.time.Duration;
 
 public class PageBase {
     // long explicit wait
-    public static WebDriverWait longWait(WebDriver driver){
+    public static WebDriverWait longWait(WebDriver driver) {
         return new WebDriverWait(driver, 25);
     }
 
     // short explicit wait
-    public static WebDriverWait shortWait(WebDriver driver){
+    public static WebDriverWait shortWait(WebDriver driver) {
         return new WebDriverWait(driver, 10);
     }
 
-    public static void fluentWaitHandling(WebDriver driver , String webElementXPATH){
+    public static void fluentWaitHandling(WebDriver driver, String webElementXPATH) {
         FluentWait wait = new FluentWait(driver)
                 .withTimeout(Duration.ofSeconds(50))
                 .pollingEvery(Duration.ofSeconds(5))

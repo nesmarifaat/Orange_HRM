@@ -19,7 +19,9 @@ import java.io.IOException;
 import java.time.Duration;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
+
 import static drivers.DriverHolder.setDriver;
+
 @Listeners()
 public class TestBase {
     WebDriver driver;
@@ -32,27 +34,29 @@ public class TestBase {
     static Properties prop;
     static FileInputStream readProperty;
     Faker faker = new Faker();
-@BeforeSuite
-public void defineSuite() throws Exception {
-    MyScreenRecorder.startRecording("Orange HRM");
-    // initialize the HtmlReporter
-    htmlReporter = new ExtentSparkReporter(System.getProperty("user.dir") + "/testReport.html");
 
-    //initialize ExtentReports and attach the HtmlReporter
-    extent = new ExtentReports();
-    extent.attachReporter(htmlReporter);
+    @BeforeSuite
+    public void defineSuite() throws Exception {
+        MyScreenRecorder.startRecording("Orange HRM");
+        // initialize the HtmlReporter
+        htmlReporter = new ExtentSparkReporter(System.getProperty("user.dir") + "/testReport.html");
 
-    setProjectDetails();
+        //initialize ExtentReports and attach the HtmlReporter
+        extent = new ExtentReports();
+        extent.attachReporter(htmlReporter);
 
-    // initialize test
-    test = extent.createTest(PROJECT_NAME + " Test Automation Project");
+        setProjectDetails();
 
-    //configuration items to change the look and fee add content, manage tests etc
-    htmlReporter.config().setDocumentTitle(PROJECT_NAME + " Test Automation Report");
-    htmlReporter.config().setReportName(PROJECT_NAME + " Test Report");
-    htmlReporter.config().setTheme(Theme.STANDARD);
-    htmlReporter.config().setTimeStampFormat("EEEE, MMMM dd, yyyy, hh:mm a '('zzz')'");
-}
+        // initialize test
+        test = extent.createTest(PROJECT_NAME + " Test Automation Project");
+
+        //configuration items to change the look and fee add content, manage tests etc
+        htmlReporter.config().setDocumentTitle(PROJECT_NAME + " Test Automation Report");
+        htmlReporter.config().setReportName(PROJECT_NAME + " Test Report");
+        htmlReporter.config().setTheme(Theme.STANDARD);
+        htmlReporter.config().setTimeStampFormat("EEEE, MMMM dd, yyyy, hh:mm a '('zzz')'");
+    }
+
     private void setProjectDetails() throws IOException {
         // TODO: Step1: define object of properties file
         readProperty = new FileInputStream(
@@ -64,6 +68,7 @@ public void defineSuite() throws Exception {
         PROJECT_NAME = prop.getProperty("Orange_HRM");
         PROJECT_URL = prop.getProperty("url");
     }
+
     @Parameters("browser")
     @BeforeTest
     public void setupDriver(String browser) {
@@ -81,7 +86,7 @@ public void defineSuite() throws Exception {
     }
 
     @AfterSuite
-    public void endSuite () throws Exception {
+    public void endSuite() throws Exception {
         MyScreenRecorder.stopRecording();
         extent.flush();
     }
@@ -90,13 +95,13 @@ public void defineSuite() throws Exception {
     public void getResult(ITestResult result) {
         if (result.getStatus() == ITestResult.FAILURE) {
             test.log(Status.FAIL, result.getName() + " failed with the following error: " + result.getThrowable());
-            Reporter.log("Failed to perform "+result.getName(), 10, true);
+            Reporter.log("Failed to perform " + result.getName(), 10, true);
         } else if (result.getStatus() == ITestResult.SUCCESS) {
             test.log(Status.PASS, result.getName());
-            Reporter.log("Successfully perform "+result.getName(), 10, true);
+            Reporter.log("Successfully perform " + result.getName(), 10, true);
         } else {
             test.log(Status.SKIP, result.getName());
-            Reporter.log("Skip "+result.getName(), 10, true);
+            Reporter.log("Skip " + result.getName(), 10, true);
         }
     }
 }

@@ -7,11 +7,11 @@ import org.openqa.selenium.WebDriver;
 public class P04_PIM {
     WebDriver driver;
 
-    public P04_PIM(WebDriver driver){
-        this.driver=driver;
+    public P04_PIM(WebDriver driver) {
+        this.driver = driver;
     }
 
-private final By empname=By.xpath("(//input[@placeholder=\"Type for hints...\"])[1]");
+    private final By empname = By.xpath("(//input[@placeholder=\"Type for hints...\"])[1]");
 
     public P04_PIM selectempname(String empname) throws InterruptedException {
         driver.findElement(this.empname).sendKeys(empname);
@@ -21,14 +21,14 @@ private final By empname=By.xpath("(//input[@placeholder=\"Type for hints...\"])
         return this;
     }
 
-    private final By employeeID=By.xpath("(//input[@class=\"oxd-input oxd-input--active\"])[2]");
+    private final By employeeID = By.xpath("(//input[@class=\"oxd-input oxd-input--active\"])[2]");
 
-    public P04_PIM fillemployeeid(String employeeID){
+    public P04_PIM fillemployeeid(String employeeID) {
         driver.findElement(this.employeeID).sendKeys(employeeID);
         return this;
     }
 
-    private final By employmentstatus=By.xpath("(//div[@class=\"oxd-select-text-input\"])[1]");
+    private final By employmentstatus = By.xpath("(//div[@class=\"oxd-select-text-input\"])[1]");
 
     public P04_PIM selectemploymentstatus() throws InterruptedException {
         driver.findElement(this.employmentstatus).click();
@@ -48,47 +48,47 @@ private final By empname=By.xpath("(//input[@placeholder=\"Type for hints...\"])
         return this;
     }
 
-    private final By searchbutton=By.xpath("//button[@type=\"submit\"]");
+    private final By searchbutton = By.xpath("//button[@type=\"submit\"]");
 
-    public P04_PIM clickonsearchbutton(){
+    public P04_PIM clickonsearchbutton() {
         driver.findElement(this.searchbutton).click();
         return this;
     }
 
-    private final By trashicon=By.xpath("//i[@class=\"oxd-icon bi-trash\"]");
+    private final By trashicon = By.xpath("//i[@class=\"oxd-icon bi-trash\"]");
 
-    public Boolean checkiftrashiconvisible(){
+    public Boolean checkiftrashiconvisible() {
 
         return driver.findElement(this.trashicon).isDisplayed();
     }
 
-    private final By addbutton=By.xpath("(//button[@type=\"button\"])[4]");
+    private final By addbutton = By.xpath("(//button[@type=\"button\"])[4]");
 
-    public P04_PIM clickonaddbutton(){
+    public P04_PIM clickonaddbutton() {
         driver.findElement(this.addbutton).click();
         return this;
     }
 
     //TODO: Fill Employee Information to be added
 
-    private final By employeefirstname=By.xpath("//input[@class=\"oxd-input oxd-input--active orangehrm-firstname\"]");
+    private final By employeefirstname = By.xpath("//input[@class=\"oxd-input oxd-input--active orangehrm-firstname\"]");
 
-    public P04_PIM fillemployeefirstname(String employeeinfo){
+    public P04_PIM fillemployeefirstname(String employeeinfo) {
         driver.findElement(this.employeefirstname).sendKeys(employeeinfo);
 
         return this;
     }
 
-    private final By middlename=By.xpath("//input[@class=\"oxd-input oxd-input--active orangehrm-middlename\"]");
+    private final By middlename = By.xpath("//input[@class=\"oxd-input oxd-input--active orangehrm-middlename\"]");
 
-    public P04_PIM fillmiddlename(String middlename){
+    public P04_PIM fillmiddlename(String middlename) {
         driver.findElement(this.middlename).sendKeys(middlename);
         return this;
     }
 
-    private final By lastname=By.xpath("//input[@class=\"oxd-input oxd-input--active orangehrm-lastname\"]");
+    private final By lastname = By.xpath("//input[@class=\"oxd-input oxd-input--active orangehrm-lastname\"]");
 
-    public P04_PIM filllastname(String lastname){
+    public P04_PIM filllastname(String lastname) {
         driver.findElement(this.lastname).sendKeys(lastname);
         return this;
     }

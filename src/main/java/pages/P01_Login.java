@@ -18,11 +18,11 @@ public class P01_Login {
         this.driver = driver;
     }
 
-   //TODO: Fill Username
+    //TODO: Fill Username
 
-    private final By username=By.xpath("//input[@name=\"username\"]");
+    private final By username = By.xpath("//input[@name=\"username\"]");
 
-    public P01_Login fillusername(String username){
+    public P01_Login fillusername(String username) {
         // call wait
         shortWait(driver).until(ExpectedConditions.visibilityOfElementLocated(this.username));
         driver.findElement(this.username).sendKeys(username);
@@ -30,13 +30,12 @@ public class P01_Login {
     }
 
     //TODO: Password
-    private final By password=By.xpath("//input[@type=\"password\"]");
+    private final By password = By.xpath("//input[@type=\"password\"]");
 
-    public P01_Login fillpassword(String password)
-    {
+    public P01_Login fillpassword(String password) {
         try {
             longWait(driver).until(ExpectedConditions.visibilityOfElementLocated(this.password));
-        }catch (TimeoutException ex){
+        } catch (TimeoutException ex) {
             ex.printStackTrace();
         }
         driver.findElement(this.password).sendKeys(password);
@@ -45,16 +44,15 @@ public class P01_Login {
 
     //TODO: Click Login Button
 
-    private final By loginbutton=By.xpath("//button[@type=\"submit\"]");
+    private final By loginbutton = By.xpath("//button[@type=\"submit\"]");
 
-    public P01_Login clickonloginbutton()
-    {
-        try{
+    public P01_Login clickonloginbutton() {
+        try {
             shortWait(driver).until(ExpectedConditions.elementToBeClickable(this.loginbutton));
-            fluentWaitHandling(driver,"//button[@type=\"submit\"]");
-        }catch (TimeoutException ex){
+            fluentWaitHandling(driver, "//button[@type=\"submit\"]");
+        } catch (TimeoutException ex) {
             ex.printStackTrace();
-            System.out.println("Error happen is "+ex.getMessage());
+            System.out.println("Error happen is " + ex.getMessage());
         }
         driver.findElement(this.loginbutton).click();
         return this;
@@ -62,20 +60,18 @@ public class P01_Login {
 
     //TODO: Login Assertion
 
-    private final By userdropdownname=By.xpath("//p[@class='oxd-userdropdown-name']");
+    private final By userdropdownname = By.xpath("//p[@class='oxd-userdropdown-name']");
 
-    public Boolean assertlogin()
-    {
+    public Boolean assertlogin() {
         return driver.findElement(this.userdropdownname).getText().equals("Shai madhrchod");
     }
 
-private final By invalidcredential=By.xpath("//p[@class=\"oxd-text oxd-text--p oxd-alert-content-text\"]");
+    private final By invalidcredential = By.xpath("//p[@class=\"oxd-text oxd-text--p oxd-alert-content-text\"]");
 
-    public Boolean checkinvalidcredentialvisability(){
+    public Boolean checkinvalidcredentialvisability() {
 
         return driver.findElement(this.invalidcredential).isDisplayed();
     }
-
 
 
 }
