@@ -1,6 +1,6 @@
 # Orange_HRM.
 
-![Orange_HRM Logo]("https://www.techrepublic.com/wp-content/uploads/2022/04/Orange-HRM-logo-1.jpg")
+![Orange_HRM Logo]("https://unixmen.com/wp-content/uploads/2015/11/OrangeHRM.jpg")
 ## Table of Contents
 
 - [Introduction](#introduction)
