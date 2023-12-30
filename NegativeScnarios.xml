@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <parameter name="browser" value=""/>
+    <test name="Login With invalid Data ">
+        <classes>
+            <class name="testcases.TC01_Login">
+                <methods>
+                    <include name="loginwithvalidusernameandinvalidpass_N"/>
+                </methods>
+            </class>
+
+            <class name="testcases.TC01_Login">
+                <methods>
+                    <include name="loginwithinvaliduserandvalidpadd_N"/>
+                </methods>
+            </class>
+
+            <class name="testcases.TC01_Login">
+                <methods>
+                    <include name="loginwithinvaliduserandpass_N"/>
+                </methods>
+            </class>
+        </classes>
+
+
+    </test>
+
+
+</suite>

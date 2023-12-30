@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <parameter name="browser" value=""/>
+    <test name="Login With Valid Data ">
+        <classes>
+            <class name="testcases.TC01_Login">
+                <methods>
+                    <include name="loginwithvalidData_P"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+
+
+    <test  name="Search For Employee">
+        <classes>
+            <class name="testcases.TC02_EmployeeSearch">
+                <methods>
+                    <include name="checksearchfunction_P"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+
+    <test  name="Add New Employee">
+        <classes>
+            <class name="testcases.TC03_AddEmployee">
+                <methods>
+                    <include name="addnewemployee_P"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test  name="Search For Employee From PIM ">
+        <classes>
+            <class name="testcases.TC04_PIMEmployeeSearch">
+                <methods>
+                    <include name="pimemployeeseach_P"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+
+    <test  name="Add New Employee From PIM ">
+        <classes>
+            <class name="testcases.TC05_AddEmployeeFromPIM">
+                <methods>
+                    <include name="addemployeefrompim_P"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
