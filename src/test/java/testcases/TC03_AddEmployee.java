@@ -6,6 +6,7 @@ import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import org.json.simple.parser.ParseException;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 import pages.P01_Login;
 import pages.P02_Home;
 import pages.P03_AdminViewSystemUser;
@@ -37,9 +38,11 @@ public class TC03_AddEmployee extends TestBase {
         new P01_Login(driver).fillusername(Username).fillpassword(Password).clickonloginbutton();
         new P02_Home(driver).openadmin();
         new P03_AdminViewSystemUser(driver).clickonaddbutton().selectnewrole().selectstatus().chooseemployeename(NewEmployeeName).fillusername(Newusername).fillpassword(PasswordI).fillconfirmpassword(PasswordI).clickonsavebutton();
-        Thread.sleep(4000);
-
         captureScreenshot(driver, "Search Employee");
+        SoftAssert softAssert=new SoftAssert();
+        softAssert.assertTrue(new P03_AdminViewSystemUser(driver).checkcurrenturl());
+        softAssert.assertAll();
 
     }
+
 }

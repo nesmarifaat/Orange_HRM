@@ -53,7 +53,6 @@ public class TC01_Login extends TestBase {
         waitForPageLoad(driver);
 
         new P01_Login(driver).fillusername(Username).fillpassword(PasswordII).clickonloginbutton();
-        Thread.sleep(2000);
         captureScreenshot(driver, "N_login with invalid password");
         SoftAssert softAssert = new SoftAssert();
         softAssert.assertTrue(new P01_Login(driver).checkinvalidcredentialvisability());
@@ -65,7 +64,6 @@ public class TC01_Login extends TestBase {
     @Test(priority = 3, description = "Check Login Functionality with invalid username and valid password")
     public void loginwithinvaliduserandvalidpadd_N() throws InterruptedException {
         new P01_Login(driver).fillusername(UsernameII).fillpassword(Password).clickonloginbutton();
-        Thread.sleep(1500);
         captureScreenshot(driver, "N_Login with invalid User name");
         SoftAssert softAssert = new SoftAssert();
         softAssert.assertTrue(new P01_Login(driver).checkinvalidcredentialvisability());
@@ -78,7 +76,6 @@ public class TC01_Login extends TestBase {
     @Test(priority = 3, description = "Check login functionality with invalid username and password")
     public void loginwithinvaliduserandpass_N() throws InterruptedException {
         new P01_Login(driver).fillusername(UsernameII).fillpassword(PasswordII).clickonloginbutton();
-        Thread.sleep(1500);
         captureScreenshot(driver, "N_Login with invalid User name and password");
         SoftAssert softAssert = new SoftAssert();
         softAssert.assertTrue(new P01_Login(driver).checkinvalidcredentialvisability());

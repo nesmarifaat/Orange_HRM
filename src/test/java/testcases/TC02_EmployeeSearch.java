@@ -36,6 +36,5 @@ public class TC02_EmployeeSearch extends TestBase {
         SoftAssert softAssert = new SoftAssert();
         softAssert.assertTrue(new P03_AdminViewSystemUser(driver).checksearchrecord());
         softAssert.assertAll();
-        Thread.sleep(4000);
     }
 }

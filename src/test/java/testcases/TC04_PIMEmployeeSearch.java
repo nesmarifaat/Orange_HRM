@@ -35,10 +35,8 @@ public class TC04_PIMEmployeeSearch extends TestBase {
     public void pimemployeeseach_P() throws InterruptedException {
 
         new P01_Login(driver).fillusername(Username).fillpassword(Password).clickonloginbutton();
-        Thread.sleep(1500);
         new P02_Home(driver).clickonpim();
         new P04_PIM(driver).selectempname(EmployeeName).selectincludeemployee().clickonsearchbutton();
-        Thread.sleep(3000);
         captureScreenshot(driver, "Search Employee From PIM");
         SoftAssert softAssert = new SoftAssert();
         softAssert.assertTrue(new P04_PIM(driver).checkiftrashiconvisible());

@@ -2,9 +2,13 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.Random;
+
+import static pages.PageBase.longWait;
 
 public class P03_AdminViewSystemUser {
 
@@ -150,8 +154,23 @@ public class P03_AdminViewSystemUser {
     private final By savebutton = By.xpath("//button[@type=\"submit\"]");
 
     public P03_AdminViewSystemUser clickonsavebutton() {
+        try {
+            longWait(driver).until(ExpectedConditions.elementToBeClickable(this.savebutton));
+        } catch (TimeoutException ex) {
+            ex.printStackTrace();
+        }
         driver.findElement(this.savebutton).click();
         return this;
+    }
+
+    public Boolean checkcurrenturl()
+    {
+        try {
+            longWait(driver).until(ExpectedConditions.urlMatches("https://opensource-demo.orangehrmlive.com/web/index.php/admin/viewSystemUsers"));
+        } catch (TimeoutException ex) {
+            ex.printStackTrace();
+        }
+        return driver.getCurrentUrl().equals("https://opensource-demo.orangehrmlive.com/web/index.php/admin/viewSystemUsers");
     }
 
 

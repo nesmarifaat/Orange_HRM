@@ -2,7 +2,13 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import java.security.PublicKey;
+
+import static pages.PageBase.longWait;
 
 public class P04_PIM {
     WebDriver driver;
@@ -65,6 +71,11 @@ public class P04_PIM {
     private final By addbutton = By.xpath("(//button[@type=\"button\"])[4]");
 
     public P04_PIM clickonaddbutton() {
+        try {
+            longWait(driver).until(ExpectedConditions.elementToBeClickable(this.addbutton));
+        } catch (TimeoutException ex) {
+            ex.printStackTrace();
+        }
         driver.findElement(this.addbutton).click();
         return this;
     }
@@ -91,6 +102,23 @@ public class P04_PIM {
     public P04_PIM filllastname(String lastname) {
         driver.findElement(this.lastname).sendKeys(lastname);
         return this;
+    }
+
+    private final By savebutton=By.xpath("//button[@type=\"submit\"]");
+    public P04_PIM clickonsavebutton(){
+        try {
+            longWait(driver).until(ExpectedConditions.elementToBeClickable(this.savebutton));
+        } catch (TimeoutException ex) {
+            ex.printStackTrace();
+        }
+        driver.findElement(this.savebutton).click();
+        return this;
+    }
+  private final By Profilepic=By.xpath("(//img[@alt=\"profile picture\"])[1]");
+
+    public Boolean ifprofilepicvisible(){
+
+        return driver.findElement(this.Profilepic).isDisplayed();
     }
 
 }
