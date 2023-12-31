@@ -24,7 +24,7 @@ Orange HRM is a comprehensive Human Resource Management (HRM) System that captur
 To set up the Orange_HRM application locally, follow these steps:
 
 1. Clone the repository:
-*   git clone https://github.com/nesmarifaat/Nop-Commerce.git
+*   git clone https://github.com/nesmarifaat/Orange_HRM
 2. Navigate to the project directory:
 *   cd Orange_HRM
 3. Install dependencies:
